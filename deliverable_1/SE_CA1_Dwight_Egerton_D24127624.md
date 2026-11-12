@@ -1,4 +1,4 @@
-# CMPU3037 | Software Engineering<br/>CA Assignment
+# CMPU3037 | Software Engineering <br/>CA Assignment
 
 **Student Name:** *Dwight Egerton*
 
@@ -64,7 +64,7 @@ and times, as-well-as size category of the car, transmission, number of seats, b
 
 These criteria will be validated by the **system** to ensure that they are valid and will return a list of available cars that match. The 
 **customer** will be presented with the list of available cars (including a representative image of the car and the total cost for the reservation).
-The **customer** can additionally filter or sort these results to narrow their search. If the **customer** find a car that meets their needs and 
+The **customer** can additionally filter or sort these results to narrow their search. If the **customer** finds a car that meets their needs and 
 budget, they will be able to select the respective option to continue with the reservation.
 
 Now that a car has been selected, the **customer** will need to provide their details to process the reservation. The **customer** will need to fill 
@@ -74,7 +74,7 @@ date. The **system** will validate this information to ensure it is complete and
 completing), the reservation will be automatically cancelled.
 
 The final step to complete the reservation would be to take the payment. The **customer** will be presented with a summary of the booking and the 
-total amount due, and will be able to enter their payment details. The **system** will pass the payment request to the external **payment-gateway** 
+total amount due and will be able to enter their payment details. The **system** will pass the payment request to the external **payment-gateway** 
 and wait for an authorisation response. Upon receiving the response that the payment for the reservation completed successfully, the **system** will
 update the reservation with a unique booking reference and will change the status to *PAID IN FULL* and will proceed to booking management screen. 
 Additionally, the **system** will send a confirmation email to the **customer** with the booking reference, the full booking details and a link to be 
@@ -173,15 +173,15 @@ reservation confirmation as-well-as additional booking management activities tha
 
 ### 2.1 Search for Suitable Car
 
-| Field                         | Detail                                                                                                                                                                                                                                |
-|-------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Use Case Name**             | Search for Suitable Car                                                                                                                                                                                                               |
-| **Actor(s)**                  | **customer**, **system**                                                                                                                                                                                                              |
-| **Goal**                      | To find a suitable car for the customer's rental needs.                                                                                                                                                                               |
-| **Overview**                  | The **customer** supplies their rental search criteria via the submission on the landing page and the **system** validates those criteria and determines which cars in the fleet are available for the requested period and location. |
-| **Pre-conditions**            | 1. The **customer** is able to access the **system**.<br/>2. It's assumed for this CA that the fleet/location data has been loaded.                                                                                                   |
-| **Post-conditions (success)** | The search criteria is valid and returns at least 1 matching car as a result. Each car will be priced for the requested rental period.                                                                                                |
-| **Post-conditions (failure)** | In the case where the search criteria matches with no available cars, the **customer** will remain on the search page a message display informing them that "no exact matches" were found.                                            |
+| Field                         | Detail                                                                                                                                                                                                                                 |
+|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Use Case Name**             | Search for Suitable Car                                                                                                                                                                                                                |
+| **Actor(s)**                  | **customer**, **system**                                                                                                                                                                                                               |
+| **Goal**                      | To find a suitable car for the customer's rental needs.                                                                                                                                                                                |
+| **Overview**                  | The **customer** supplies their rental search criteria via the submission on the landing page, and the **system** validates those criteria and determines which cars in the fleet are available for the requested period and location. |
+| **Pre-conditions**            | 1. The **customer** is able to access the **system**. <br/>2. It's assumed for this CA that the fleet/location data has been loaded.                                                                                                   |
+| **Post-conditions (success)** | The search criteria is valid and returns at least 1 matching car as a result. Each car will be priced for the requested rental period.                                                                                                 |
+| **Post-conditions (failure)** | In the case where the search criteria matches with no available cars, the **customer** will remain on the search page a message display informing them that "no exact matches" were found.                                             |
 
 #### Successful Scenario
 
@@ -198,11 +198,11 @@ reservation confirmation as-well-as additional booking management activities tha
 
 #### Alternative Scenario(s)
 
-| Step | Condition                                                                                         | Handling                                                                                                                                                  |
-|------|---------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 5    | A mandatory field is missing or malformed.                                                        | The **system** rejects and redisplays the form (highlighting the offending field(s)), with the appropriate message. Resumes the flow at step 3.           |
-| 5    | The pick-up/drop-off date/time are badly structured (in the past, drop-off before pick-up, etc.). | The **system** rejects and redisplays the form (highlighting the offending field(s)), with the appropriate message. Resumes the flow at step 3.           |
-| 6    | No cars match the search criteria.                                                                | The **system** displays a "no exact matches" message and suggests the **customer** revise their search criteia and try again. Resumes the flow at step 3. |
+| Step | Condition                                                                                         | Handling                                                                                                                                                   |
+|------|---------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 5    | A mandatory field is missing or malformed.                                                        | The **system** rejects and redisplays the form (highlighting the offending field(s)), with the appropriate message. Resumes the flow at step 3.            |
+| 5    | The pick-up/drop-off date/time are badly structured (in the past, drop-off before pick-up, etc.). | The **system** rejects and redisplays the form (highlighting the offending field(s)), with the appropriate message. Resumes the flow at step 3.            |
+| 6    | No cars match the search criteria.                                                                | The **system** displays a "no exact matches" message and suggests the **customer** revise their search criteria and try again. Resumes the flow at step 3. |
 
 ### 2.2 View Availability and Choose
 
@@ -214,7 +214,7 @@ reservation confirmation as-well-as additional booking management activities tha
 | **Overview**                  | The **customer** reviews the list of available cars returned by the search, optionally refines it by filtering and sorting, and selects the car they wish to reserve.               |
 | **Pre-conditions**            | A list of available cars was returned by the **system** based on the search criteria.                                                                                               |
 | **Post-conditions (success)** | The **customer** selects a suitable car from the options provided (based on their preference and budget), the selection will then be carried forward into **Create a Reservation**. |
-| **Post-conditions (failure)** | No car is selected: the **customer** starts over with different search criteria.<br/> The **customer** abandons the session.                                                        |
+| **Post-conditions (failure)** | No car is selected: the **customer** starts over with different search criteria. <br/> The **customer** abandons the session.                                                        |
 
 <div style="page-break-before:always"></div>
 
@@ -233,22 +233,22 @@ reservation confirmation as-well-as additional booking management activities tha
 
 | Step | Condition                                                              | Handling                                                                                                                                                  |
 |------|------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 4    | No cars match the search criteria.                                     | The **system** displays a "no exact matches" message and suggests the **customer** revise their search criteia and try again. Resumes the flow at step 3. |
+| 4    | No cars match the search criteria.                                     | The **system** displays a "no exact matches" message and suggests the **customer** revise their search criteria and try again. Resumes the flow at step 3. |
 | 5    | The **customer** chooses to start over with different search criteria. | The **system** returns the **customer** to the search form with the previous criteria pre-populated and passes control to **Search for Suitable Car**.    |
 
 <div style="page-break-before:always"></div>
 
 ### 2.3 Create a Reservation
 
-| Field                         | Detail                                                                                                                                                                                                                                     |
-|-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Use Case Name**             | Create a Reservation                                                                                                                                                                                                                       |
-| **Actor(s)**                  | **customer**, **system**                                                                                                                                                                                                                   |
-| **Goal**                      | To create a reservation for a selected car by providing valid contact & driver details.                                                                                                                                                    |
-| **Overview**                  | The **customer** supplies the contact & driver details required to create a reservation.<br/>The **system** validates those details, creates the reservation in a *PENDING PAYMENT* state<br/>Places a temporary hold on the selected car. |
-| **Pre-conditions**            | A car has been selected for the requested period.                                                                                                                                                                                          |
-| **Post-conditions (success)** | A reservation created with status *PENDING PAYMENT* and a temporary hold has been placed on the selected car for the rental period.                                                                                                        |
-| **Post-conditions (failure)** | Car is no longer available: the **customer** is informed the car is no longer available and control is passed to **Search for Suitable Car**.<br>Yhe **customer** abaondons the session: no reservation is created.                        |
+| Field                         | Detail                                                                                                                                                                                                                                       |
+|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Use Case Name**             | Create a Reservation                                                                                                                                                                                                                         |
+| **Actor(s)**                  | **customer**, **system**                                                                                                                                                                                                                     |
+| **Goal**                      | To create a reservation for a selected car by providing valid contact & driver details.                                                                                                                                                      |
+| **Overview**                  | The **customer** supplies the contact & driver details required to create a reservation. <br/>The **system** validates those details, creates the reservation in a *PENDING PAYMENT* state <br/>places a temporary hold on the selected car. |
+| **Pre-conditions**            | A car has been selected for the requested period.                                                                                                                                                                                            |
+| **Post-conditions (success)** | A reservation created with status *PENDING PAYMENT* and a temporary hold has been placed on the selected car for the rental period.                                                                                                          |
+| **Post-conditions (failure)** | Car is no longer available: the **customer** is informed the car is no longer available and control is passed to **Search for Suitable Car**. <br>The **customer** abandons the session: no reservation is created.                          |
 
 #### Successful Scenario
 
@@ -267,12 +267,12 @@ reservation confirmation as-well-as additional booking management activities tha
 
 #### Alternative Scenario(s)
 
-| Step | Condition                                                                       | Handling                                                                                                                                                                                  |
-|------|---------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 5    | One or more mandatory fields are missing or malformed.                          | The **system** rejects and redisplays the form (highlighting the offending field(s)), with the appropriate message. Resumes the flow at step 2.                                           |
-| 6    | The driver outsite the minimum/maximin allowed age.                             | The **system** rejects and redisplays the form (highlighting the offending field(s)), with the appropriate message. Resumes the flow at step 2.                                           |
-| 7    | The driving licence has expired, or expires before the drop-off date.           | The **system** rejects and redisplays the form (highlighting the offending field(s)), with the appropriate message. Resumes the flow at step 2.                                           |
-| 8    | The car is no longer available.                                                 | The **system** rejects and returns the **customer** to the search form with an explination as to why the reservation could not proceed and passes control to **Search for Suitable Car**. |
+| Step | Condition                                                            | Handling                                                                                                                                                                                  |
+|------|----------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 5    | One or more mandatory fields are missing or malformed.               | The **system** rejects and redisplays the form (highlighting the offending field(s)), with the appropriate message. Resumes the flow at step 2.                                           |
+| 6    | The driver outside the minimum/maximin allowed age.                  | The **system** rejects and redisplays the form (highlighting the offending field(s)), with the appropriate message. Resumes the flow at step 2.                                           |
+| 7    | The driving licence has expired or expires before the drop-off date. | The **system** rejects and redisplays the form (highlighting the offending field(s)), with the appropriate message. Resumes the flow at step 2.                                           |
+| 8    | The car is no longer available.                                      | The **system** rejects and returns the **customer** to the search form with an explanation as to why the reservation could not proceed and passes control to **Search for Suitable Car**. |
 
 <div style="page-break-before:always"></div>
 
@@ -284,16 +284,16 @@ reservation confirmation as-well-as additional booking management activities tha
 | **Actor(s)**                  | **customer**, **system**, **payment-gateway**                                                                                                                                                                                                      |
 | **Goal**                      | To securely process the payment for a reservation and send confirmation of the reservation.                                                                                                                                                        |
 | **Overview**                  | The **customer** pays for the reservation. The **system** forwards the payment request to the external **payment-gateway**, interprets the authorisation response, confirms the reservation and issues a booking reference and confirmation email. |
-| **Pre-conditions**            | 1. A reservation exists with status *PENDING PAYMENT*.<br/>2. The temporary hold on the car has not yet expired.<br/>3. The **payment-gateway** is reachable.                                                                                      |
-| **Post-conditions (success)** | The reservation is update with a unique booking reference, the gateway transaction referenceand the status is update to *PAID IN FULL*<br/>Additionally, a confirmation email will been sent.                                                      |
-| **Post-conditions (failure)** | The reservation remains in the *PENDING PAYMENT* state, the hold is retained for the remainder of its timer and the **customer** is invited to try an alternative payment method.                                                                  |
+| **Pre-conditions**            | 1. A reservation exists with status *PENDING PAYMENT*. <br/>2. The temporary hold on the car has not yet expired. <br/>3. The **payment-gateway** is reachable.                                                                                    |
+| **Post-conditions (success)** | The reservation is update with a unique booking reference, the gateway transaction reference and the status is update to *PAID IN FULL*. <br/>Additionally, a confirmation email will be sent.                                                     |
+| **Post-conditions (failure)** | The reservation remains in the *PENDING PAYMENT* state, the hold is retained for the remainder of its timer, and the **customer** is invited to try an alternative payment method.                                                                 |
 
 #### Successful Scenario
 
 | Step | Actor           | Action                                                                                                                                                          |
 |------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1    | system          | Displays the payment page with a summary of the booking (car, locations, dates/times, driver) and the total amount due, itemised with any surcharges and taxes. |
-| 2    | customer        | Enters the cardholder name, card number, expiry, and security code.<br/>Will then submits the payment request.                                                  |
+| 2    | customer        | Enters the cardholder name, card number, expiry, and security code. <br/>Will then submits the payment request.                                                 |
 | 3    | system          | Checks the card details are correct.                                                                                                                            |
 | 4    | system          | Submits a payment request to the **payment-gateway** over a secure channel.                                                                                     |
 | 5    | payment-gateway | Processes the request and returns an authorisation response containing the outcome and a transaction reference.                                                 |
@@ -321,26 +321,26 @@ reservation confirmation as-well-as additional booking management activities tha
 | **Actor(s)**                  | **customer**, **system**, **payment-gateway**                                                                                                                                                                                                                                                            |
 | **Goal**                      | Amend an existing reservation and process any applicable refund.                                                                                                                                                                                                                                         |
 | **Overview**                  | The **customer** retrieves an existing reservation and amends the permitted details - the rental dates/times, the pick-up or drop-off location, the car selected, or the driver contact details. The **system** re-validates availability, re-prices the booking and collects or refunds any difference. |
-| **Pre-conditions**            | 1. A reservation exists with status *PAID IN FULL*.<br/>2. The pick-up date and time is more than 48 hours in the future.                                                                      |
+| **Pre-conditions**            | 1. A reservation exists with status *PAID IN FULL*. <br/>2. The pick-up date and time is more than 48 hours in the future.                                                                                                                                                                               |
 | **Post-conditions (success)** | The reservation is updated with the amended details, re-priced, and any price difference has been collected or refunded. The status remains *PAID IN FULL* and an updated confirmation email has been sent.                                                                                              |
 | **Post-conditions (failure)** | The original reservation is left completely unchanged.                                                                                                                                                                                                                                                   |
 
 #### Successful Scenario
 
-| Step | Actor           | Action                                                                                                                                                                    |
-|------|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1    | customer        | Opens the booking management screen and supplies the booking reference (or follows the emailed link).                                                                     |
-| 2    | system          | Locates and displays either the single selected reservation or selects from the list of current, future and historical reservations.                                      |
-| 3    | customer        | Selects the reservation to amend and chooses "Amend booking".                                                                                                             |
-| 4    | system          | Checks the reservation is eligible for amendment (status *PAID IN FULL* and it's more than 48 hours before pick-up) and displays the amendable fields.                    |
-| 5    | customer        | Changes one or more of: pick-up/drop-off date & time, pick-up/drop-off location, car selection, driver contact details and submits the amendment.                         |
-| 6    | system          | Validates the amended criteria using the same rules and re-checks availability for the amended period/car.                                                                |
-| 7    | system          | Recalculate the total cost and determines the difference against the amount already paid, applying any amendment to the charged fee.                                      |
-| 8    | system          | Presents the **customer** with a clear before/after summary and the balance to pay or to be refunded and confirms the amendment.                                          |
-| 9    | system          | Where a balance is payable, requests authorisation from the **payment-gateway**.<br/>Where a refund is due, requests a refund against the original transaction reference. |
-| 10   | payment-gateway | Returns the authorisation or refund outcome and a transaction reference.                                                                                                  |
-| 11   | system          | Updates the reservation with the amended details, releases the hold on the previously allocated car (if changed) and allocates the new one.                               |
-| 12   | system          | Sends an updated confirmation email retaining the original booking reference, and redisplays the booking management screen.                                               |
+| Step | Actor           | Action                                                                                                                                                                     |
+|------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1    | customer        | Opens the booking management screen and supplies the booking reference (or follows the emailed link).                                                                      |
+| 2    | system          | Locates and displays either the single selected reservation or selects from the list of current, future and historical reservations.                                       |
+| 3    | customer        | Selects the reservation to amend and chooses "Amend booking".                                                                                                              |
+| 4    | system          | Checks the reservation is eligible for amendment (status *PAID IN FULL* and it's more than 48 hours before pick-up) and displays the amendable fields.                     |
+| 5    | customer        | Changes one or more of: pick-up/drop-off date & time, pick-up/drop-off location, car selection, driver contact details and submits the amendment.                          |
+| 6    | system          | Validates the amended criteria using the same rules and re-checks availability for the amended period/car.                                                                 |
+| 7    | system          | Recalculate the total cost and determines the difference against the amount already paid, applying any amendment to the charged fee.                                       |
+| 8    | system          | Presents the **customer** with a clear before/after summary and the balance to pay or to be refunded and confirms the amendment.                                           |
+| 9    | system          | Where a balance is payable, requests authorisation from the **payment-gateway**. <br/>Where a refund is due, requests a refund against the original transaction reference. |
+| 10   | payment-gateway | Returns the authorisation or refund outcome and a transaction reference.                                                                                                   |
+| 11   | system          | Updates the reservation with the amended details, releases the hold on the previously allocated car (if changed) and allocates the new one.                                |
+| 12   | system          | Sends an updated confirmation email retaining the original booking reference, and redisplays the booking management screen.                                                |
 
 #### Alternative Scenario(s)
 
@@ -349,7 +349,7 @@ reservation confirmation as-well-as additional booking management activities tha
 | 2    | The booking reference is not recognised.                                                | The **system** displays "booking not found" without disclosing whether the reference exists, and resumes at step 1.                                                                |
 | 3    | The reservation is *COMPLETED*, *CANCELLED*, or currently in progress.                  | Access to amend the booking would not be available, so the **customer** would not be able to proceed. Resumes at step 1.                                                           |
 | 4    | The pick-up is 48 hours or less away.                                                   | Access to amend the booking would not be available, so the **customer** would not be able to proceed. Resumes at step 1.                                                           |
-| 6    | The amended dates or car are not available.                                             | The **system** informs the **customer** and would suggest available alternatives and resumes at step 5.<br/>The original reservation remains unchanged.                            |
+| 6    | The amended dates or car are not available.                                             | The **system** informs the **customer** and would suggest available alternatives and resumes at step 5. <br/>The original reservation remains unchanged.                           |
 | 7    | The amendment results in no price change.                                               | Skips ahead and continues from step 11.                                                                                                                                            |
 | 9    | The **customer** declines the revised price.                                            | The **system** discards the amendment and returns to step 2 with the reservation unchanged.                                                                                        |
 | 10   | The **payment-gateway** declines the payment (insufficient funds).                      | The **system** leaves the reservation at *PENDING PAYMENT*, displays the decline reason and invites the **customer** to use an alternative payment method. Flow resumes at step 5. |
@@ -357,41 +357,41 @@ reservation confirmation as-well-as additional booking management activities tha
 
 ### 2.6 Cancel a Booking
 
-| Field                         | Detail                                                                                                                                                                                                                                                                                                                                   |
-|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Use Case Name**             | Cancel a Booking                                                                                                                                                                                                                                                                                                                         |
-| **Actor(s)**                  | **customer**, **system**, **payment-gateway**                                                                                                                                                                                                                                                                                            |
-| **Goal**                      | Cancel an existing reservation and process any applicable refund.                                                                                                                                                                                                                                                                        |
-| **Overview**                  | The **customer** cancels an existing reservation.<br/>The **system** verifies that the cancellation is permitted, calculates any cancellation fee, requests the appropriate refund from the **payment-gateway**.<br/>Will releases the car back to the available fleet.<br/>Finall will send a confirmation email regarding the cancellation. |
-| **Pre-conditions**            | 1. A reservation exists with status *PAID IN FULL*.<br/>2. The **customer** has retrieved the reservation via the booking reference or the emailed management link.                                                                                                                                                                      |
-| **Post-conditions (success)** | The reservation status is *CANCELLED* and car will be released back into the available pool.<br/>Any refund due will be issued and a cancellation confirmation email is sent.                                                                                                                                                            |
-| **Post-conditions (failure)** | The reservation remains in its original state, the car remains allocated and no refund is issued.                                                                                                                                                                                                                                        |
+| Field                         | Detail                                                                                                                                                                                                                                                                                                                                           |
+|-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Use Case Name**             | Cancel a Booking                                                                                                                                                                                                                                                                                                                                 |
+| **Actor(s)**                  | **customer**, **system**, **payment-gateway**                                                                                                                                                                                                                                                                                                    |
+| **Goal**                      | Cancel an existing reservation and process any applicable refund.                                                                                                                                                                                                                                                                                |
+| **Overview**                  | The **customer** cancels an existing reservation. <br/>The **system** verifies that the cancellation is permitted, calculates any cancellation fee, requests the appropriate refund from the **payment-gateway**. <br/>Will releases the car back to the available fleet. <br/>Finaly will send a confirmation email regarding the cancellation. |
+| **Pre-conditions**            | 1. A reservation exists with status *PAID IN FULL*. <br/>2. The **customer** has retrieved the reservation via the booking reference or the emailed management link.                                                                                                                                                                             |
+| **Post-conditions (success)** | The reservation status is *CANCELLED*, and car will be released back into the available pool. <br/>Any refund due will be issued and a cancellation confirmation email is sent.                                                                                                                                                                  |
+| **Post-conditions (failure)** | The reservation remains in its original state, the car remains allocated and no refund is issued.                                                                                                                                                                                                                                                |
 
 <div style="page-break-before:always"></div>
 
 #### Successful Scenario
 
-| Step | Actor           | Action                                                                                                                                          |
-|------|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1    | customer        | Opens the booking management screen and supplies the booking reference (or follows the emailed link).                                           |
-| 2    | system          | Locates and displays either the single selected reservation or selects from the list of current, future and historical reservations.            |
-| 3    | customer        | Selects the reservation to cancel and chooses "Cancel booking".                                                                                 |
-| 4    | system          | Checks the reservation is eligible for cancellation (status *PAID IN FULL* and it's more than 48 hours before pick-up).                         |
-| 5    | system          | Calculates any applicable cancellation fee and the resulting refund amount, and displays them to the **customer**.                              |
-| 6    | system          | Asks the **customer** to explicitly confirm the cancellation, making it clear that the action cannot be undone.                                 |
-| 7    | customer        | Confirms the cancellation.                                                                                                                      |
-| 8    | system          | Sends a refund request to the **payment-gateway** for the calculated amount, quoting the original transaction reference.                        |
-| 9    | payment-gateway | Processes the refund and returns the outcome together with a refund transaction reference.                                                      |
-| 10   | system          | Stores the refund transaction reference and updates the reservation status to *CANCELLED*.                                                      |
-| 11   | system          | Releases the car for the cancelled period back into the available fleet.                                                                        |
+| Step | Actor           | Action                                                                                                                                         |
+|------|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1    | customer        | Opens the booking management screen and supplies the booking reference (or follows the emailed link).                                          |
+| 2    | system          | Locates and displays either the single selected reservation or selects from the list of current, future and historical reservations.           |
+| 3    | customer        | Selects the reservation to cancel and chooses "Cancel booking".                                                                                |
+| 4    | system          | Checks the reservation is eligible for cancellation (status *PAID IN FULL* and it's more than 48 hours before pick-up).                        |
+| 5    | system          | Calculates any applicable cancellation fee and the resulting refund amount and displays them to the **customer**.                              |
+| 6    | system          | Asks the **customer** to explicitly confirm the cancellation, making it clear that the action cannot be undone.                                |
+| 7    | customer        | Confirms the cancellation.                                                                                                                     |
+| 8    | system          | Sends a refund request to the **payment-gateway** for the calculated amount, quoting the original transaction reference.                       |
+| 9    | payment-gateway | Processes the refund and returns the outcome together with a refund transaction reference.                                                     |
+| 10   | system          | Stores the refund transaction reference and updates the reservation status to *CANCELLED*.                                                     |
+| 11   | system          | Releases the car for the cancelled period back into the available fleet.                                                                       |
 | 12   | system          | Sends a cancellation confirmation email containing the booking reference, the cancelled booking details, any fee charged and the refund amount. |
-| 13   | system          | Redisplays the booking management screen showing the reservation as *CANCELLED*.                                                                |
+| 13   | system          | Redisplays the booking management screen showing the reservation as *CANCELLED*.                                                               |
 
 #### Alternative Scenario(s)
 
 | Step | Condition                                                              | Handling                                                                                                                                                                               |
 |------|------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 2    | The booking reference is not recognised.                               | The **system** displays "booking not found" without disclosing whether the reference exists, and resumes at step 1.                                                                    |
+| 2    | The booking reference is not recognised.                               | The **system** displays "booking not found" without disclosing whether the reference exists and resumes at step 1.                                                                    |
 | 3    | The reservation is *COMPLETED*, *CANCELLED*, or currently in progress. | Access to cancel the booking would not be available, so the **customer** would not be able to proceed. Resumes at step 1.                                                              |
 | 4    | The pick-up is 48 hours or less away.                                  | Access to cancel the booking would not be available, so the **customer** would not be able to proceed. Resumes at step 1.                                                              |
 | 5    | The cancellation fee equals the amount paid, so no refund is due.      | The **system** clearly states that no refund will be issued and on confirmation skips straight to step 10.                                                                             |
