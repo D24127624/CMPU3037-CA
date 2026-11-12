@@ -43,7 +43,7 @@
 ## 1 Overview
 
 For this CA I wouldn't have an applicable work-place example that I could use, so I decided to design **system** based on a real world example that 
-most are familiar with. My systems requirements will be based on a **Car Reservation Management System**. As the scope of a full this **system** is 
+most are familiar with. My systems requirements will be based on a **Car Reservation Management System**. As the scope of a full **system** is 
 far bigger than what can be delivered in this CA, I have focused on only the following core processes ... finding a suitable car, creating a 
 reservation, taking payment for the booking, as-well-as the ability to manage your booking once made.
 
