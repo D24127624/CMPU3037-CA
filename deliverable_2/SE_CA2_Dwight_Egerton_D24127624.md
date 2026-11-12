@@ -1,4 +1,4 @@
-# CMPU3037 | Software Engineering<br/>CA Assignment
+# CMPU3037 | Software Engineering <br/>CA Assignment
 
 **Student Name:** *Dwight Egerton*
 
@@ -49,7 +49,7 @@ following high-level classes: -
 | **Size Category / Transmission**               | Descriptive attributes classification belonging directly to a `Car`. *Excluded (attribute)*                         |                           |
 | **Baggage Space / Number of Seats**            | Design specifications or attributes belonging directly to a `Car`. *Excluded (attribute)*                           |                           |
 | **Total Cost / Rental Fee / Surcharge**        | Numeric values computed dynamically by the system using system business rules. *Excluded (attribute)*               |                           |
-| **Driver Details (Full Name, Address, DoB)**   | Demographics collected on the driver; can be modeled as a standalone entity or part of `Customer`.                  | **Customer**              |
+| **Driver Details (Full Name, Address, DoB)**   | Demographics collected on the driver; can be modelled as a standalone entity or part of `Customer`.                 | **Customer**              |
 | **Driving Licence (Number, Country, Expiry)**  | Critical domain item containing unique operational rules and expiration checks.                                     | **DrivingLicence**        |
 | **Payment Details / Card Details**             | Sensitive data temporary inputs; explicitly never stored raw by the application.                                    | **Payment**               |
 | **Payment Gateway**                            | An external third-party actor interface, handled via an abstraction layer.                                          | **PaymentGatewayRequest** |
